@@ -155,26 +155,22 @@ void task_2() {
 
 void task_3() {
 
-	std::cout << "/**********************************************" << std::endl;
-	std::cout << "*                Aitken process               *" << std::endl;
-	std::cout << "***********************************************/" << std::endl;
+	std::cout << "                 Aitken process               " << std::endl;
 	double q = 100;
 	double n = 10;
 	double F1 = TrapezoidalIntegral(0, 2, n);
 	double F2 = TrapezoidalIntegral(0, 2, q * n);
 	double F3 = TrapezoidalIntegral(0, 2, q * q * n);
-	/*********************************************************
-	* Calculation of the order of the main term of the error *
-	**********************************************************/
+
+	 //Calculation of the order of the main term of the error 
+	
 	double p = 1.0 / log(q) * log((F3 - F2) / (F2 - F1));
 	double I = F1 + (F1 - F2) * (F1 - F2) / (2 * F2 - F1 - F3);
 	std::cout << std::fixed << std::setprecision(12) << "Exact value: \t\t\t" << exactValue << std::endl;
 	std::cout << std::fixed << std::setprecision(12) << "Clarified value : \t\t" << I << std::endl;
 	std::cout << std::fixed << std::setprecision(12) << "Effective order of precision : \t" << p << std::endl;
 	std::cout << std::fixed << std::setprecision(12) << "Error margin: \t\t\t" << abs(I - exactValue) << std::endl << std::endl << std::endl;
-	std::cout << "/**********************************************" << std::endl;
-	std::cout << "*                 Runge  Method               *" << std::endl;
-	std::cout << "***********************************************/" << std::endl;
+	std::cout << "                  Runge  Method" << std::endl;
 
 	double n1 = 1000;
 	double n2 = 2 * n1;
@@ -196,9 +192,7 @@ std::cout << std::fixed << std::setprecision(12) << "Effective order of precisio
 std::cout << std::fixed << std::setprecision(12) << "Error margin \t\t\t" << abs(I - exactValue) << std::endl << std::endl << std::endl;
 
 
-	std::cout << "/**********************************************" << std::endl;
-	std::cout << "*                 Romberg method              *" << std::endl;
-	std::cout << "***********************************************/" << std::endl;
+	std::cout << "                 Romberg method             " << std::endl;
 	double a = romberg(0, 2);
 	std::cout << std::fixed << std::setprecision(12) << "Exact value: \t\t" << exactValue << std::endl;
 	std::cout << std::fixed << std::setprecision(12) << "Romberg method value: \t" << a << std::endl;
@@ -245,9 +239,7 @@ void task_5() {
 
 void task_6() {
 
-	std::cout << "/**********************************************" << std::endl;
-	std::cout << "*             Monte-Carlo Metod               *" << std::endl;
-	std::cout << "***********************************************/" << std::endl;
+	std::cout << "             Monte-Carlo Metod               " << std::endl;
 	std::ofstream out("task_6_out.txt");
 	std::ofstream out2("task_6.1_out.txt");
 
@@ -285,7 +277,6 @@ void task_6() {
 }
 
 int main() {
-	setlocale(LC_ALL, "Russian");
 	int c = -1;
 	while (c != 0) {
 		cout << "enter number for task, 0 for exit" << endl;
