@@ -37,21 +37,17 @@ double TrapezoidalIntegral(double a, double b, int n) {
 		const double x2 = a + (step + 1) * width;
 
 		trapezoidal_integral += 0.5 * (x2 - x1) * (function(x1) + function(x2));
-
 	}
 
 	return trapezoidal_integral;
 }
 double TrapezoidalIntegral5(int n, std::vector<double>& xValues) {
-
-
 	double trapezoidal_integral = 0;
 	for (int step = 0; step < n - 1; step++) {
 		double x1 = xValues[step];
 		double x2 = xValues[step + 1];
 
 		trapezoidal_integral += 0.5 * (x2 - x1) * (function(x1) + function(x2));
-
 	}
 
 	return trapezoidal_integral;
@@ -83,11 +79,11 @@ double romberg(double a, double b) {
 	}
 	r[1][1] = h[1] / 2 * (function(a) + function(b));
 	for (int i = 2; i < N + 1; ++i) {
-		double coeff = 0;
+		double Sum = 0;
 		for (int k = 1; k <= pow(2, i - 2); ++k) {
-			coeff += function(a + (2 * k - 1) * h[i]);
+			Sum += function(a + (2 * k - 1) * h[i]);
 		}
-		r[i][1] = 0.5 * (r[i - 1][1] + h[i - 1] * coeff);
+		r[i][1] = 0.5 * (r[i - 1][1] + h[i - 1] * Sum);
 	}
 
 	for (int i = 2; i < N + 1; ++i) {
@@ -247,7 +243,7 @@ void task_6() {
 	double Integral = 0;
 	double x1 = 0.0, x2 = 2.0;
 
-	for (int N = 10; N < 2000; N++) {
+	for (int N = 10; N < 1000; N++) {
 
 		Integral = 0;
 		for (int k = 1; k <= 100; k++) {
@@ -279,7 +275,7 @@ void task_6() {
 int main() {
 	int c = -1;
 	while (c != 0) {
-		cout << "enter number for task, 0 for exit" << endl;
+		cout << "enter number for task(1,2,3,5,6), 0 for exit" << endl;
 		cin >> c;
 		switch (c) {
 		case 1:
